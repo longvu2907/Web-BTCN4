@@ -25,4 +25,4 @@ app.use((err, req, res, next) => {
   res.status(statusCode).send(err.message);
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(port, () => console.log(`Shop server listening on port ${port}`));

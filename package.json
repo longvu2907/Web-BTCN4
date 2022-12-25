@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "dev": "concurrently \"node ./Auth/server.js\" \"node ./Shop/server.js\""
+    "dev": "concurrently \"nodemon ./Auth/server.js\" \"nodemon ./Shop/server.js\""
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -10,6 +10,6 @@
     "express-handlebars": "^6.0.6",
     "jsonwebtoken": "^9.0.0",
     "pg-promise": "^10.15.4",
-    "rand-token": "^1.0.1"
+    "util": "^0.12.5"
   }
 }
