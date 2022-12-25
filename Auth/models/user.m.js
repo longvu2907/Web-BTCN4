@@ -26,7 +26,7 @@ module.exports = {
   add: async ({ username, password, fullname, token, address }) => {
     const maxID = await db.query(`
     SELECT "UserID" FROM "Users" 
-    ORDER BY "UserID"
+    ORDER BY "UserID" DESC
     LIMIT 1
     `);
 
@@ -34,10 +34,10 @@ module.exports = {
       `
     INSERT INTO "Users" ("UserID","Username","Password","FullName","Token","Address") VALUES ($1, $2, $3, $4, $5, $6) RETURNING *
     `,
-      [maxID + 1, username, password, fullname, token, address],
+      [maxID[0].UserID + 1, username, password, fullname, token, address],
     );
 
-    return res;
+    return res[0];
   },
   updateToken: async ({ userID, refreshToken }) => {
     const res = await db.query(

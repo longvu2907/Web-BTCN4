@@ -1,0 +1,53 @@
+<div class="card" style="width: 400px; height: fit-content;">
+  <div class="card-header text-center">
+    <h2>Login</h2>
+  </div>
+  <div class="card-body needs-validation">
+    <form class="row g-3" id="loginForm">
+      <div class="col-12">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label for="tokenLife">Life time login</label>
+        <select class="form-select" id="tokenLife" name="tokenLife">
+          <option value="1" selected>1 day</option>
+          <option value="15">15 days</option>
+          <option value="30">30 days</option>
+          <option value="45">45 days</option>
+        </select>
+      </div>
+      <div class="col-12 feedback">
+        <input type="hidden" class="form-control" />
+        <div class="invalid-feedback">
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit">Login</button>
+      </div>
+      <div class="col-12">
+        <span>Don't have an account? <a href="/register">Register </a></span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="scripts/login.script.js" type="module"></script>

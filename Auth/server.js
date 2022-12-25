@@ -1,8 +1,9 @@
 require("dotenv").config();
 const express = require("express");
-const exphbs = require("express-handlebars");
+var cors = require("cors");
 const app = express();
 const https = require("https");
+const cookieparser = require("cookie-parser");
 
 const port = process.env.AUTH_PORT;
 const credentials = {
@@ -12,8 +13,15 @@ const credentials = {
 
 const authRouter = require("./routers/auth.r");
 
+app.use(
+  cors({
+    origin: `http://localhost:${process.env.SHOP_PORT}`,
+    credentials: true,
+  }),
+);
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cookieparser());
 
 app.use("/auth", authRouter);
 

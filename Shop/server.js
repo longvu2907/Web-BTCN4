@@ -2,23 +2,32 @@ require("dotenv").config();
 const express = require("express");
 const exphbs = require("express-handlebars");
 const app = express();
+const cookieparser = require("cookie-parser");
 
 const port = process.env.SHOP_PORT;
 
-// app.engine(
-//   "hbs",
-//   exphbs.engine({
-//     extname: "hbs",
-//     defaultLayout: "container.hbs",
-//     layoutsDir: "views/_layouts",
-//     partialsDir: "views/_layouts",
-//   }),
-// );
-// app.set("view engine", "hbs");
+const authRouter = require("./routers/auth.r");
+const mainRouter = require("./routers/main.r");
 
-// app.use(express.static(__dirname + "/public"));
+app.engine(
+  "hbs",
+  exphbs.engine({
+    extname: "hbs",
+    defaultLayout: "container.hbs",
+    layoutsDir: __dirname + "/views/layouts",
+    partialsDir: __dirname + "/views/components",
+  }),
+);
+app.set("views", __dirname + "/views");
+app.set("view engine", "hbs");
+
+app.use(express.static(__dirname + "/public"));
+app.use(cookieparser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use("", authRouter);
+app.use("", mainRouter);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode | 500;

@@ -1,0 +1,71 @@
+<div class="card" style="width: 400px; height: fit-content;">
+  <div class="card-header text-center">
+    <h2>Register</h2>
+  </div>
+  <div class="card-body">
+    <form class="row g-3" id="registerForm">
+      <div class="col-12">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Username"
+          id="username"
+          name="username"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          id="password"
+          name="password"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label for="fullname">Fullname</label>
+        <input
+          type="fullname"
+          class="form-control"
+          placeholder="Fullname"
+          id="fullname"
+          name="fullname"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <label for="address">Address</label>
+        <input
+          type="address"
+          class="form-control"
+          placeholder="Address"
+          id="address"
+          name="address"
+          required
+        />
+      </div>
+      <div class="col-12 feedback">
+        <input type="hidden" class="form-control" />
+        <div class="invalid-feedback">
+        </div>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary w-100" type="submit">
+          Register
+        </button>
+      </div>
+      <div class="col-12">
+        <span>
+          Already have an account?
+          <a href="/login">Login </a>
+        </span>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script src="scripts/register.script.js" type="module"></script>

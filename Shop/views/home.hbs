@@ -1,0 +1,17 @@
+<div class="d-flex flex-column">
+  <select class="form-select" id="tokenLife" name="tokenLife" onchange="handleSelectCategory(this)">
+    <option selected>All category</option>
+    {{#each catList}}
+    <option value={{this.CategoryID}} {{#ifEquals ../currentCat CategoryID}}selected{{/ifEquals}}>{{this.CategoryName}}</option>
+    {{/each}}
+  </select>
+  <div class="d-flex flex-wrap">
+    {{#each productList}}
+      {{> productCard this }}
+    {{/each}}
+  </div>
+</div>
+
+<script>
+  function handleSelectCategory(obj) { window.location.search = `?catID=${obj.value}` }
+</script>
